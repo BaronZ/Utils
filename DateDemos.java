@@ -14,6 +14,11 @@ class DateDemos{
 		String date1 = "2013/7/5";
 		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy/M/d");
 		//output:1372953600000
-		System.out.println(sdf2.parse(date1).getTime());		
+		System.out.println(sdf2.parse(date1).getTime());
+
+		/*获取每天零时毫秒数 2013-07-12 --> 1373558400000*/
+		Date date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(sdf.parse(sdf.format(date)).getTime());
 	}
 }
