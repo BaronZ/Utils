@@ -18,7 +18,13 @@ class DateDemos{
 
 		/*获取每天零时毫秒数 2013-07-12 --> 1373558400000*/
 		Date date = new Date();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		System.out.println(sdf.parse(sdf.format(date)).getTime());
+		SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println(sdf3.parse(sdf.format(date)).getTime());
+		
+		/*转换毫秒为时分秒*/
+		SimpleDateFormat sdf4 = new SimpleDateFormat("HH:mm:ss");
+		sdf4.setTimeZone(TimeZone.getTimeZone("GMT+00:00"));
+		String hms = sdf4.format(ms);
+		System.out.println(hms);  
 	}
 }
