@@ -25,6 +25,35 @@ class DateDemos{
 		calendar.setTimeInMillis(millis);
 		return calendar.get(Calendar.YEAR);
 	}
+	/**
+	 * Description: 日期转为毫秒
+	 * @created 2013-9-29 下午12:25:52 
+	 * @author ZZB
+	 */
+	public static long convertDateToTimeMillis(String date, String format) throws ParseException{
+		SimpleDateFormat sdf2 = new SimpleDateFormat(format);
+		long millis = sdf2.parse(date).getTime();
+		System.out.println(millis);
+		return millis;
+	}
+	/**
+	 * Description:获取一个月开头和结束的毫秒数
+	 * @return 返回一个符串，包含月开头和结束的毫秒数，用','分隔， 
+	 * @created 2013-9-29 上午11:47:15 
+	 * @author ZZB
+	 * @throws ParseException 
+	 */
+	public static String getMonthStartEndTimeMillis(long millis) throws ParseException{
+		int year = getYear(millis);
+		int month = getMonth(millis);
+		String startMonth = year + "-" + month;
+		String endMonth = year + "-" + month+1;
+		//月初时间
+		long start = convertDateToTimeMillis(startMonth, "yyyy-MM");
+		//月末时间
+		long end = convertDateToTimeMillis(endMonth, "yyyy-MM") - 1;
+		return start + "," + end;
+	}
 	public static void main(String[] args) {
 		
 		/*2013-07-02*/
