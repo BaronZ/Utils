@@ -54,6 +54,13 @@ class DateDemos{
 		long end = convertDateToTimeMillis(endMonth, "yyyy-MM") - 1;
 		return start + "," + end;
 	}
+	/**传入时区字符串，可比较两个时区之间的时间，返回的是毫秒*/
+	public static long getTimeDiff(String srcTimeZoneId, String dstTimeZoneId){
+		//本机默认时区与UTC时区的比较
+		//long timeDiff = TimeZone.getDefault().getRawOffset() - TimeZone.getTimeZone("UTC").getRawOffset();
+		long timeDiff = TimeZone.getTimeZone(srcTimeZoneId).getRawOffset() - TimeZone.getTimeZone(dstTimeZoneId).getRawOffset();
+		return timeDiff;
+	}
 	public static void main(String[] args) {
 		
 		/*2013-07-02*/
